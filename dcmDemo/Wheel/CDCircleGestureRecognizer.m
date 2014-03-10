@@ -99,12 +99,14 @@
             
 //            thumb.sublayer.affineTransform = CGAffineTransformMakeScale(-0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6, -0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6);
             thumb.sublayer.affineTransform = CGAffineTransformScale(thumb.sublayer.affineTransform,-0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6, -0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6);
+            thumb.lb.transform =  CGAffineTransformMakeRotation(degreesToRadians(45/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)));
         } else {
             //thumb.backgroundColor = [UIColor clearColor];
 //            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
 //            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(45/kyori*fabs(CGRectGetMidX(shadowRect)-point.x));
-            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
+            //thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
             thumb.sublayer.affineTransform = CGAffineTransformScale(thumb.sublayer.affineTransform,1.0,1.0);
+            thumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
         }
     }
     ;

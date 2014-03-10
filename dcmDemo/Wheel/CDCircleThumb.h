@@ -29,6 +29,7 @@
 @property (nonatomic, strong) UILabel *lb;
 @property  (nonatomic, assign) float scale;
 @property (nonatomic, strong)CustomLayer *sublayer;
+@property (nonatomic, strong)CATextLayer *label;
 
 -(id) initWithShortCircleRadius: (CGFloat) shortRadius longRadius: (CGFloat) longRadius numberOfSegments: (CGFloat) sNumber;
 

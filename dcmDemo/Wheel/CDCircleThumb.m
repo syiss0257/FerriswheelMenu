@@ -78,6 +78,7 @@
     NSLog(@"%f",atan2(self.transform.a,self.transform.b));
     _lb.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     [self addSubview:_lb];
+    _lb.hidden = YES;
     
     _scale = 0.25f;
     
@@ -99,6 +100,29 @@
     //[sublayer setNeedsDisplay];
     [self.layer addSublayer:_sublayer];
     [_sublayer setNeedsDisplay];
+    
+    
+    
+    _label = [[CATextLayer alloc] init];
+    [_label setFont:@"Helvetica-Bold"];
+    [_label setFontSize:20];
+    [_label setFrame:CGRectMake(0, 0, 10, 20)];
+    [_label setString:[NSString stringWithFormat:@"%d",5]];
+    [_label setAlignmentMode:kCAAlignmentCenter];
+    [_label setForegroundColor:[[UIColor redColor] CGColor]];
+    _label.position = CGPointMake(35, 35);
+    [_sublayer addSublayer:_label];
+//    _lb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 10, 20)];
+//    _lb.text = @"1";
+//    //_lb.transform = CGAffineTransformMakeRotation(degreesToRadians(60));
+//    //_lb.transform = CGAffineTransformMakeRotation(atan2(self.transform.a,self.transform.b)-degreesToRadians(90));
+//    //NSLog(@"%f",atan2(self.transform.a,self.transform.b));
+//    _lb.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+//    [_sublayer addSublayer:_lb.layer];
+    
+    
+    
+    
     return self;
 }
 

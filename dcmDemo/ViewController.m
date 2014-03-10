@@ -54,34 +54,41 @@ CDCircle* circle ;
         //otherThumb.sublayer.affineTransform = CGAffineTransformMakeTranslation(50, 0);
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         
-        //otherThumb.sublayer.affineTransform = CGAffineTransformTranslation(otherThumb.sublayer.affineTransform,50, 0);
-        if (thumb.tag == 0) {
-            if (otherThumb.tag == thumb.tag +1) {
-                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
-                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
-            } else if(otherThumb.tag == numberOfSegment-1){
-                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
-                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+        double delayInSeconds = 0.3;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //[_shape2 startAnimation];
+            //otherThumb.sublayer.affineTransform = CGAffineTransformTranslation(otherThumb.sublayer.affineTransform,50, 0);
+            if (thumb.tag == 0) {
+                if (otherThumb.tag == thumb.tag +1) {
+                    otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
+                    otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
+                } else if(otherThumb.tag == numberOfSegment-1){
+                    otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
+                    otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+                }
             }
-        }
-        else if(thumb.tag == numberOfSegment-1){
-            if (otherThumb.tag == 0) {
-                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
-                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
-            } else if(otherThumb.tag == thumb.tag -1){
-                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
-                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+            else if(thumb.tag == numberOfSegment-1){
+                if (otherThumb.tag == 0) {
+                    otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
+                    otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
+                } else if(otherThumb.tag == thumb.tag -1){
+                    otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
+                    otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+                }
             }
-        }
-        else {
-            if (otherThumb.tag == thumb.tag +1) {
-                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
-                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
-            } else if(otherThumb.tag == thumb.tag -1){
-                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
-                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+            else {
+                if (otherThumb.tag == thumb.tag +1) {
+                    otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
+                    otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
+                } else if(otherThumb.tag == thumb.tag -1){
+                    otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
+                    otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+                }
             }
-        }
+        });
+        
+
      }
 
 

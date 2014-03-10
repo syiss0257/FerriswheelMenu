@@ -90,6 +90,8 @@
         CDCircleThumb * thumb = [self.thumbs objectAtIndex:i];
         thumb.tag = i;
         thumb.lb.text = [NSString stringWithFormat:@"%d",thumb.tag];
+        [thumb.label setString:[NSString stringWithFormat:@"%d",thumb.tag]];
+        //thumb.label.position = thumb.center;
         if (thumb.tag%2 == 1) {
             thumb.sublayer.frame = CGRectMake(0, 0, 70, 70);
             thumb.sublayer.position = thumb.center;
