@@ -104,24 +104,12 @@
         CGFloat yi = centerPoint.y + (radius * sin(degreesToRadians(perSectionDegrees)));
         
 
-        //NSLog(@"%f,%f,%f",radius,x,yi);
-        //NSLog(@"SSSSS%f__%d",perSectionDegrees + kRotationDegrees,i);
-        //NSLog(@"SSSSS%f__%d(%f,%f)",perSectionDegrees,i,x,yi);
         [thumb setTransform:CGAffineTransformMakeRotation(degreesToRadians(perSectionDegrees + kRotationDegrees))];
-//        thumb.lb.transform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -45));
-//        thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -45));
         thumb.lb.transform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -totalRotation));
         thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -totalRotation));
-        //[thumb setTransform:CGAffineTransformMakeRotation(degreesToRadians(kRotationDegrees))];
-        
-        //初期位置
-        //NSLog(@"RRRRR%f",radiansToDegrees(atan2(thumb.transform.a, thumb.transform.b)));
+
         if (i==0) {
-            //NSLog(@"%f",atan2(thumb.transform.a, thumb.transform.b));
             deltaAngle= degreesToRadians(360 - kRotationDegrees) + atan2(thumb.transform.a, thumb.transform.b);
-            //deltaAngle= degreesToRadians(36);
-            //deltaAngle= atan2(thumb.transform.a, thumb.transform.b);
-            //[thumb.iconView setIsSelected:YES];
             self.recognizer.currentThumb = thumb;
         }
        
@@ -137,12 +125,8 @@
         
     }
     
-    //初期位置
-    
-    //NSLog(@"111111111____%f", degreesToRadians(atan2(self.transform.a, self.transform.b)));
     [self setTransform:CGAffineTransformRotate(self.transform,deltaAngle)];
-    //NSLog(@"222222222____%f", degreesToRadians(atan2(self.transform.a, self.transform.b)));
-    //NSLog(@"EEEEEEEEE%f", deltaAngle);
+ 
  }
 
 -(void) tapped: (CDCircleGestureRecognizer *) arecognizer{
@@ -150,60 +134,12 @@
     if (arecognizer.ended == NO) {
     CGPoint point = [arecognizer locationInView:self];
     if ([path containsPoint:point] == NO) {
-        //NSLog(@"AAAAAAAAAAAAAAAAAAA%f",[arecognizer rotation]);
-//        if (arecognizer.rotation<0) {
+
             [self setTransform:CGAffineTransformRotate([self transform], [arecognizer rotation])];
-//        }
-    //[self setTransform:CGAffineTransformRotate([self transform], 4.084071)];
+
     }
 }
     //[arecognizer append];
-    
-}
-
-
--(void)sampleRotate{
-    
-   // NSLog(@"")
-    
-    [UIView animateWithDuration:0.3f animations:^{
-        [self setTransform:CGAffineTransformRotate(self.transform,degreesToRadians(36))];
-    } completion:^(BOOL finished) {
-        //[self setTransform:CGAffineTransformRotate(self.transform,degreesToRadians(36))];
-        
-    }];
-    
-    
-//    for (CDCircleThumb *thumb in self.thumbs) {
-//        
-//        CGPoint touchPoint = [touch locationInView:thumb];
-//        if (CGPathContainsPoint(thumb.arc.CGPath, NULL, touchPoint, NULL)) {
-//            
-//
-//            
-//            CGFloat deltaAngle= - degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b);
-//            //CGFloat deltaAngle= atan2(thumb.transform.a, thumb.transform.b);
-//            CGAffineTransform current = view.transform;
-//            [UIView animateWithDuration:0.3f animations:^{
-//                [view setTransform:CGAffineTransformRotate(current, deltaAngle)];
-//            } completion:^(BOOL finished) {
-//
-//                
-//                self.currentThumb = thumb;
-//                //Delegate method
-//                [view.delegate circle:view didMoveToSegment:thumb.tag thumb:thumb];
-//                self.ended = YES;
-//                
-//            }];
-//            
-//            break;
-//        }
-//        
-//    }
-   
-    
-    
-    
     
 }
 

@@ -44,21 +44,15 @@ CDCircle* circle ;
 
     for (CDCircleThumb* otherThumb in circle.thumbs){
 
-//        for (int i = 1; i<=5; i++) {
-//            otherThumb.scale = 0.1f + 0.03f*i;
-//            //otherThumb.transform = CGAffineTransformMakeRotation();
-//            [otherThumb setNeedsDisplay];
-//        }
         otherThumb.sublayer.affineTransform = CGAffineTransformIdentity;
-        otherThumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
+        //otherThumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         //otherThumb.sublayer.affineTransform = CGAffineTransformMakeTranslation(50, 0);
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         
         double delayInSeconds = 0.3;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            //[_shape2 startAnimation];
-            //otherThumb.sublayer.affineTransform = CGAffineTransformTranslation(otherThumb.sublayer.affineTransform,50, 0);
+
             if (thumb.tag == 0) {
                 if (otherThumb.tag == thumb.tag +1) {
                     otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
@@ -92,22 +86,6 @@ CDCircle* circle ;
      }
 
 
-//    for (int t = 1; t<=5; t++) {
-//        
-//        
-//        double delayInSeconds = 0.01*t;
-//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//            
-//            if (thumb.scale > 0.25 - 0.03f*t) {
-//                thumb.scale = 0.25 - 0.03f*t;
-//
-//                [thumb setNeedsDisplay];;
-//            }
-//        });
-//        
-//    }
-    
     [thumb setNeedsDisplay];
     
     //thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.2, 1.2);
@@ -120,17 +98,6 @@ CDCircle* circle ;
     thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.4, 1.4);
     }
 }
-
-//-(UIImage *) circle:(CDCircle *)circle iconForThumbAtRow:(NSInteger)row{
-//    NSString *fileString = [[[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:nil] lastObject];
-//    
-//    return [UIImage imageWithContentsOfFile:fileString];
-//}
-/*
-
- 
- */
-    
 
 
 - (IBAction)kaitenBtn:(id)sender {

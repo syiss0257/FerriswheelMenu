@@ -86,18 +86,10 @@
     //CALayer *sublayer = [CALayer layer];
     //CustomLayer *sublayer = [CALayer layer];
     _sublayer = [[CustomLayer alloc]init];
-    //sublayer.delegate = sublayer;
-    //sublayer.backgroundColor = [UIColor blueColor].CGColor;
     _sublayer.backgroundColor = [UIColor clearColor].CGColor;
-//    sublayer.shadowOffset = CGSizeMake(0, 3);
-//    sublayer.shadowRadius = 5.0;
-//    sublayer.shadowColor = [UIColor blackColor].CGColor;
-//    sublayer.shadowOpacity = 0.8;
     _sublayer.opacity = 0.5;
     _sublayer.frame = CGRectMake(0, 0, 80, 80);
     _sublayer.position = self.center;
-    //sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(180));
-    //[sublayer setNeedsDisplay];
     [self.layer addSublayer:_sublayer];
     [_sublayer setNeedsDisplay];
     
@@ -112,16 +104,7 @@
     [_label setForegroundColor:[[UIColor redColor] CGColor]];
     _label.position = CGPointMake(35, 35);
     [_sublayer addSublayer:_label];
-//    _lb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 10, 20)];
-//    _lb.text = @"1";
-//    //_lb.transform = CGAffineTransformMakeRotation(degreesToRadians(60));
-//    //_lb.transform = CGAffineTransformMakeRotation(atan2(self.transform.a,self.transform.b)-degreesToRadians(90));
-//    //NSLog(@"%f",atan2(self.transform.a,self.transform.b));
-//    _lb.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-//    [_sublayer addSublayer:_lb.layer];
-    
-    
-    
+
     
     return self;
 }
@@ -134,13 +117,6 @@
     // Drawing code
     [super drawRect:rect];
 
-//    CGRect box = CGRectInset(self.bounds, self.bounds.size.width * _scale, self.bounds.size.height * _scale);
-//    //CGRect box = CGRectInset(self.bounds, self.bounds.size.width * -0.5, self.bounds.size.height *-0.5);
-//    UIBezierPath *ballBezierPath = [UIBezierPath bezierPathWithOvalInRect:box];
-//    [[UIColor blackColor] setStroke];
-//    [[UIColor whiteColor] setFill]; // Green here to show the black area
-//    [ballBezierPath stroke];
-//    [ballBezierPath fill];
 
     //Angles
     
@@ -164,34 +140,5 @@
 
     return NO;
 }
-
-//-(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
-//    NSLog(@"KKK");
-//    UIGraphicsPushContext(ctx);
-//    CGRect box = CGRectInset(self.bounds, self.bounds.size.width * _scale, self.bounds.size.height * _scale);
-//    //CGRect box = CGRectInset(self.bounds, self.bounds.size.width * -0.5, self.bounds.size.height *-0.5);
-//    UIBezierPath *ballBezierPath = [UIBezierPath bezierPathWithOvalInRect:box];
-//    [[UIColor blackColor] setStroke];
-//    [[UIColor whiteColor] setFill]; // Green here to show the black area
-//    [ballBezierPath stroke];
-//    [ballBezierPath fill];
-//    
-//    //Angles
-//    
-//    CGFloat clockwiseStartAngle = degreesToRadians((270 - ((360/numberOfSegments)/2)));
-//    CGFloat clockwiseEndAngle = degreesToRadians((270 + ((360/numberOfSegments)/2)));
-//    
-//    CGFloat nonClockwiseStartAngle = clockwiseEndAngle;
-//    CGFloat nonClockwiseEndAngle = clockwiseStartAngle;
-//    
-//    CGPoint center = CGPointMake(CGRectGetMidX(layer.frame), lRadius);
-//    
-//    self.arc = [UIBezierPath bezierPathWithArcCenter: center radius:lRadius startAngle:clockwiseStartAngle endAngle:clockwiseEndAngle clockwise:YES];
-//    
-//    [arc addArcWithCenter:center radius:sRadius startAngle:nonClockwiseStartAngle endAngle:nonClockwiseEndAngle clockwise:NO];
-//    
-//    
-//    UIGraphicsPopContext();
-//}
 
 @end
