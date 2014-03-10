@@ -74,7 +74,7 @@
     currentTransformAngle = atan2f(view.transform.b, view.transform.a);
 
     
-    CDCircleThumb *currentThumb2;
+    //CDCircleThumb *currentThumb2;
     
     for (CDCircleThumb *thumb in view.thumbs) {
         CGPoint point = [thumb convertPoint:thumb.centerPoint toView:nil];
@@ -84,11 +84,12 @@
         
         if (CGRectContainsPoint(shadowRect, point) == YES) {
             
-            currentThumb2 = thumb;
-            NSLog(@"JJJJJJJJRRRJ%d",thumb.tag);
-            NSLog(@"DDDDDDDDDDDJ%d",currentThumb2.tag);
+            //currentThumb2 = thumb;
+//            NSLog(@"JJJJJJJJRRRJ%d",thumb.tag);
+//            NSLog(@"DDDDDDDDDDDJ%d",currentThumb2.tag);
  
             float kyori = CGRectGetMidX(shadowRect)-shadowRect.origin.x;
+            //thumb.sublayer.affineTransform = CGAffineTransformRotate(thumb.sublayer.affineTransform, -angleInRadians);
 //            
 //            thumb.scale = 0.15/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+0.1;
 //            
@@ -97,7 +98,9 @@
 ////            thumb.scale = 0.25 - 0.15;
 //            NSLog(@"%f",thumb.scale);
 //            [thumb setNeedsDisplay];
-            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(0/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)-5));
+            //thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(0/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)-5));
+            //thumb.sublayer.affineTransform = CGAffineTransformRotate(thumb.sublayer.affineTransform, -angleInRadians);
+            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(-angleInRadians);
             
 //            thumb.sublayer.affineTransform = CGAffineTransformMakeScale(-0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6, -0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6);
             thumb.sublayer.affineTransform = CGAffineTransformScale(thumb.sublayer.affineTransform,-0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6, -0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6);
@@ -105,8 +108,11 @@
         } else {
             //thumb.backgroundColor = [UIColor clearColor];
             //thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
-            NSLog(@"JJJJJJJJJ%d",currentThumb2.tag);
-            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
+            //NSLog(@"JJJJJJJJJ%d_____%d",currentThumb2.tag,thumb.tag);
+//            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
+            //thumb.sublayer.affineTransform = CGAffineTransformRotation(thumb.sublayer.affineTransform,-angleInRadians);
+            thumb.sublayer.affineTransform = CGAffineTransformRotate(thumb.sublayer.affineTransform, -angleInRadians);
+
 //            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(45/kyori*fabs(CGRectGetMidX(shadowRect)-point.x));
             //thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
             thumb.sublayer.affineTransform = CGAffineTransformScale(thumb.sublayer.affineTransform,1.0,1.0);

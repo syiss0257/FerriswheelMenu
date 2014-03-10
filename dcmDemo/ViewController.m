@@ -86,6 +86,7 @@ CDCircle* circle ;
      }
 
 
+    //thumb.sublayer.affineTransform = CGAffineTransformIdentity;
     [thumb setNeedsDisplay];
     
     //thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.2, 1.2);
