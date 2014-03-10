@@ -49,7 +49,7 @@ CDCircle* circle ;
         //otherThumb.sublayer.affineTransform = CGAffineTransformMakeTranslation(50, 0);
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         
-        double delayInSeconds = 0.3;
+        double delayInSeconds = 0.2f;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 
