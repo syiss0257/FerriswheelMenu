@@ -93,7 +93,7 @@
 //    sublayer.shadowColor = [UIColor blackColor].CGColor;
 //    sublayer.shadowOpacity = 0.8;
     _sublayer.opacity = 0.5;
-    _sublayer.frame = CGRectMake(0, 0, 60, 60);
+    _sublayer.frame = CGRectMake(0, 0, 80, 80);
     _sublayer.position = self.center;
     //sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(180));
     //[sublayer setNeedsDisplay];

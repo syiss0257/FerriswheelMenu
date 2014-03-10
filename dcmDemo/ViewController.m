@@ -44,36 +44,45 @@ CDCircle* circle ;
 
     for (CDCircleThumb* otherThumb in circle.thumbs){
 
-        for (int i = 1; i<=5; i++) {
-            otherThumb.scale = 0.1f + 0.03f*i;
-            //otherThumb.transform = CGAffineTransformMakeRotation();
-            [otherThumb setNeedsDisplay];
-        }
+//        for (int i = 1; i<=5; i++) {
+//            otherThumb.scale = 0.1f + 0.03f*i;
+//            //otherThumb.transform = CGAffineTransformMakeRotation();
+//            [otherThumb setNeedsDisplay];
+//        }
+        thumb.sublayer.affineTransform = CGAffineTransformIdentity;
         otherThumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
-    }
-
-
-    for (int t = 1; t<=5; t++) {
-        
-        
-        double delayInSeconds = 0.01*t;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            
-            if (thumb.scale > 0.25 - 0.03f*t) {
-                thumb.scale = 0.25 - 0.03f*t;
-
-                [thumb setNeedsDisplay];;
-            }
-        });
         
     }
+
+
+//    for (int t = 1; t<=5; t++) {
+//        
+//        
+//        double delayInSeconds = 0.01*t;
+//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//            
+//            if (thumb.scale > 0.25 - 0.03f*t) {
+//                thumb.scale = 0.25 - 0.03f*t;
+//
+//                [thumb setNeedsDisplay];;
+//            }
+//        });
+//        
+//    }
     
     [thumb setNeedsDisplay];
+    
+    //thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.2, 1.2);
 
     thumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(0));
     thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(0));
+    if (thumb.tag%2 == 1) {
+    thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.6, 1.6);
+    } else {
+    thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.4, 1.4);
+    }
 }
 
 //-(UIImage *) circle:(CDCircle *)circle iconForThumbAtRow:(NSInteger)row{

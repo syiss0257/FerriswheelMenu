@@ -90,6 +90,12 @@
         CDCircleThumb * thumb = [self.thumbs objectAtIndex:i];
         thumb.tag = i;
         thumb.lb.text = [NSString stringWithFormat:@"%d",thumb.tag];
+        if (thumb.tag%2 == 1) {
+            thumb.sublayer.frame = CGRectMake(0, 0, 70, 70);
+            thumb.sublayer.position = thumb.center;
+            //[thumb.sublayer retain];
+        }
+        
 
         CGFloat radius = rect1.size.height/2 + ((rect.size.height/2 - rect1.size.height/2)/2) - thumb.yydifference;
         CGFloat x = centerPoint.x + (radius * cos(degreesToRadians(perSectionDegrees)));
