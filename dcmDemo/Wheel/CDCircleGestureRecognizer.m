@@ -81,21 +81,30 @@
         CDCircleThumb *shadow = view.overlayView.overlayThumb;
         CGRect shadowRect = [shadow.superview convertRect:shadow.frame toView:nil];
         
+        CDCircleThumb *currentThumb2;
         if (CGRectContainsPoint(shadowRect, point) == YES) {
+            
+            currentThumb2 = thumb;
  
             float kyori = CGRectGetMidX(shadowRect)-shadowRect.origin.x;
-            
-            thumb.scale = 0.15/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+0.1;
-            
 //            
-//            thumb.scale = 0.4;
-//            thumb.scale = 0.25 - 0.15;
-            NSLog(@"%f",thumb.scale);
-            [thumb setNeedsDisplay];
+//            thumb.scale = 0.15/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+0.1;
+//            
+////            
+////            thumb.scale = 0.4;
+////            thumb.scale = 0.25 - 0.15;
+//            NSLog(@"%f",thumb.scale);
+//            [thumb setNeedsDisplay];
+            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(45/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)));
             
-            
+//            thumb.sublayer.affineTransform = CGAffineTransformMakeScale(-0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6, -0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6);
+            thumb.sublayer.affineTransform = CGAffineTransformScale(thumb.sublayer.affineTransform,-0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6, -0.6/kyori*fabs(CGRectGetMidX(shadowRect)-point.x)+1.6);
         } else {
             //thumb.backgroundColor = [UIColor clearColor];
+//            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
+//            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(45/kyori*fabs(CGRectGetMidX(shadowRect)-point.x));
+            thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-45*(thumb.tag-currentThumb2.tag)));
+            thumb.sublayer.affineTransform = CGAffineTransformScale(thumb.sublayer.affineTransform,1.0,1.0);
         }
     }
     ;
