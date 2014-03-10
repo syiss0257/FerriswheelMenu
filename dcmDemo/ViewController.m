@@ -49,11 +49,40 @@ CDCircle* circle ;
 //            //otherThumb.transform = CGAffineTransformMakeRotation();
 //            [otherThumb setNeedsDisplay];
 //        }
-        thumb.sublayer.affineTransform = CGAffineTransformIdentity;
+        otherThumb.sublayer.affineTransform = CGAffineTransformIdentity;
         otherThumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
+        //otherThumb.sublayer.affineTransform = CGAffineTransformMakeTranslation(50, 0);
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         
-    }
+        //otherThumb.sublayer.affineTransform = CGAffineTransformTranslation(otherThumb.sublayer.affineTransform,50, 0);
+        if (thumb.tag == 0) {
+            if (otherThumb.tag == thumb.tag +1) {
+                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
+                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
+            } else if(otherThumb.tag == numberOfSegment-1){
+                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
+                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+            }
+        }
+        else if(thumb.tag == numberOfSegment-1){
+            if (otherThumb.tag == 0) {
+                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
+                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
+            } else if(otherThumb.tag == thumb.tag -1){
+                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
+                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+            }
+        }
+        else {
+            if (otherThumb.tag == thumb.tag +1) {
+                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 20, 0);
+                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, 5, 0);
+            } else if(otherThumb.tag == thumb.tag -1){
+                otherThumb.sublayer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -20, 0);
+                otherThumb.lb.layer.affineTransform = CGAffineTransformTranslate(otherThumb.sublayer.affineTransform, -5, 0);
+            }
+        }
+     }
 
 
 //    for (int t = 1; t<=5; t++) {
@@ -94,6 +123,8 @@ CDCircle* circle ;
 
  
  */
+    
+
 
 - (IBAction)kaitenBtn:(id)sender {
     
@@ -104,4 +135,5 @@ CDCircle* circle ;
     [circle.recognizer append];
     
 }
+    
 @end
