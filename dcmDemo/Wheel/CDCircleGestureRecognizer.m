@@ -85,9 +85,10 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    //NSLog(@"VVVVVVV");
    // Perform final check to make sure a tap was not misinterpreted.
    if ([self state] == UIGestureRecognizerStateChanged) {
-    
+    //NSLog(@"VVVVVVV111111");
        
        CDCircle *view = (CDCircle *) [self view];
        CGFloat flipintime = 0;
@@ -157,7 +158,7 @@
      [self setState:UIGestureRecognizerStateEnded];
        
    } else {
-       
+       //NSLog(@"VVVVVVV22222");
        CDCircle *view = (CDCircle *)[self view];
        UITouch *touch = [touches anyObject];
        
@@ -165,14 +166,14 @@
            thumb.sublayer.affineTransform = CGAffineTransformRotate(thumb.sublayer.affineTransform, -(- degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b)));
            CGPoint touchPoint = [touch locationInView:thumb];
            if (CGPathContainsPoint(thumb.arc.CGPath, NULL, touchPoint, NULL)) {
-               
-               //NSLog(@"33333333____%f",radiansToDegrees(atan2(view.transform.a, view.transform.b)));
-
-               [self rotatePropaty:view selected:thumb];
+               //NSLog(@"VVVVVVV4444");
+                [self rotatePropaty:view selected:thumb];
                break;
            }
            
        }
+       //NSLog(@"VVVVVVV555555");
+       //[self rotatePropaty:view selected:self.currentThumb];
        
        [self setState:UIGestureRecognizerStateFailed];
    }
@@ -182,6 +183,8 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    //NSLog(@"MMMMMMMMMM");
    [self setState:UIGestureRecognizerStateFailed];
 }
 
@@ -217,7 +220,7 @@
 
 -(void)rotatePropaty:(CDCircle*)view selected:(CDCircleThumb*)thumb{
 
-    
+    //NSLog(@"VVVVV33333");
     CGFloat deltaAngle= - degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b);
     //CGFloat deltaAngle= atan2(thumb.transform.a, thumb.transform.b);
     CGAffineTransform current = view.transform;

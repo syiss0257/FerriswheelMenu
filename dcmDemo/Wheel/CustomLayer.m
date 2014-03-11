@@ -19,7 +19,7 @@
 //}
 
 - (void)drawInContext:(CGContextRef)ctx{
-    NSLog(@"OK");
+    //NSLog(@"OK");
     [super drawInContext:ctx];
     
 
@@ -35,6 +35,20 @@
     UIColor* strokeColor;
     UIBezierPath* path;
     strokeColor = [UIColor clearColor];
+    
+//    switch ([self.name intValue]) {
+//        case 0:
+//            fillColor = [UIColor colorWithRed:1.0 green:141/255 blue:106/255 alpha:1.0];
+//            break;
+//        case 1:
+//            fillColor = [UIColor colorWithRed:1.0 green:141/255 blue:106/255 alpha:1.0];
+//            break;
+//            
+//        default:
+//            break;
+//    }
+    
+    fillColor = [self changeBackGroundColor:[self.name intValue]];
     path = [UIBezierPath bezierPath];
     
     
@@ -95,7 +109,42 @@
 }
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
-    NSLog(@"OK2");
+    //NSLog(@"OK2");
+}
+
+-(UIColor*)changeBackGroundColor:(NSInteger)segment{
+    
+    switch (segment) {
+        case 0:
+            bgColor = [UIColor colorWithRed:1.0 green:0.55 blue:0.42 alpha:1.0];
+            break;
+        case 1:
+            bgColor = [UIColor colorWithRed:0.56 green:0.73 blue:0.89 alpha:1.0];
+            break;
+        case 2:
+            bgColor = [UIColor colorWithRed:1.0 green:0.89 blue:0.63 alpha:1.0];
+            break;
+        case 3:
+            bgColor = [UIColor colorWithRed:0.5 green:0.8 blue:0.84 alpha:1.0];
+            break;
+        case 4:
+            bgColor = [UIColor colorWithRed:1.0 green:0.53 blue:0.49 alpha:1.0];
+            break;
+        case 5:
+            bgColor = [UIColor colorWithRed:0.63 green:0.9 blue:0.86 alpha:1.0];
+            break;
+        case 6:
+            bgColor = [UIColor colorWithRed:0.86 green:0.58 blue:0.68 alpha:1.0];
+            break;
+        case 7:
+            bgColor = [UIColor colorWithRed:0.87 green:0.7 blue:0.53 alpha:1.0];
+            break;
+            
+        default:
+            break;
+    }
+
+    return bgColor;
 }
 
 @end

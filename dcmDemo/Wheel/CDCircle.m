@@ -34,7 +34,8 @@
         self.separatorStyle = CDCircleThumbsSeparatorBasic;
         //self.separatorStyle = CDCircleThumbsSeparatorNone;
         self.ringWidth = width;
-        self.circleColor = [UIColor yellowColor];
+        //self.circleColor = [UIColor yellowColor];
+        self.circleColor = [UIColor clearColor];
         
         
         CGRect rect1 = CGRectMake(0, 0, CGRectGetHeight(frame) - (2*ringWidth), CGRectGetWidth(frame) - (2*ringWidth));
@@ -122,7 +123,8 @@
         
         
          [self addSubview:thumb];
-        
+        thumb.sublayer.name = [NSString stringWithFormat:@"%d",thumb.tag];
+        [thumb.sublayer setNeedsDisplay];
     }
     
     [self setTransform:CGAffineTransformRotate(self.transform,deltaAngle)];

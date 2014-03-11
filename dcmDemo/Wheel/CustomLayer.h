@@ -8,6 +8,9 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface CustomLayer : CALayer
+@interface CustomLayer : CALayer{
+    UIColor* bgColor;
+}
 @property(assign,nonatomic)float value;
+
 @end
