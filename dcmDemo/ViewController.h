@@ -14,7 +14,9 @@
 
 @interface ViewController : UIViewController<CDCircleDelegate,CDCircleDataSource>{
     int numberOfSegment;
+    UIView* base;
 }
+@property (strong, nonatomic) IBOutlet UILabel *highlightLb;
 - (IBAction)kaitenBtn:(id)sender;
 
 

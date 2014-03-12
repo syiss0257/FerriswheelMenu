@@ -41,4 +41,10 @@ CGRect rectFor1PxStroke(CGRect rect) {
 
 
 
++(NSString*)cubesLabel:(int)num{
+    
+       NSMutableArray* exps = [NSMutableArray arrayWithObjects:@"飲みに行く", @"後で読む",@"あれから\n100日",@"気になる\n夕刊",@"スケジュール",@"明日の\nアラーム",@"美沙に\nメール",@"家まで\n45分",nil];
+    return [exps objectAtIndex:num];
+}
+
 @end

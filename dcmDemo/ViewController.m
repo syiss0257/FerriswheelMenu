@@ -32,17 +32,25 @@ CDCircle* circle ;
     overlay.alpha = 0.0f;
     [self.view addSubview:overlay];
 
-    double delayInSeconds = 0.3f;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    [self circle:circle didMoveToSegment:0 thumb:[circle.thumbs objectAtIndex:0]];
-     });
+//    double delayInSeconds = 0.3f;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//    [self circle:circle didMoveToSegment:0 thumb:[circle.thumbs objectAtIndex:0]];
+//     });
     
     
     UIApplication *application = [UIApplication sharedApplication];
     
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationDidBecomeActiveNotification object:application];
+    
+//    base = [[UIView alloc]initWithFrame:CGRectMake(120, 115, 80, 80)];
+//    base.backgroundColor = [UIColor blueColor];
+//    base.alpha = 0.5;
+//    //base.center = overlay.center;
+//    //base.hidden = NO;
+//    [self.view addSubview:base];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,11 +59,24 @@ CDCircle* circle ;
     // Dispose of any resources that can be recreated.
 }
 
+//delegateMethod
+
 -(void) circle:(CDCircle *)circle didMoveToSegment:(NSInteger)segment thumb:(CDCircleThumb *)thumb{
     
     [self changeBackGroundColor:segment];
-
+    _highlightLb.hidden = NO;
+    _highlightLb.alpha = 0.2;
+    _highlightLb.text = [Common cubesLabel:thumb.tag];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         _highlightLb.alpha = 1.0;
+                     }
+                     completion:^(BOOL finished) {
+                     }];
+    
+    
     for (CDCircleThumb* otherThumb in circle.thumbs){
+        otherThumb.label.hidden = NO;
 
         otherThumb.sublayer.affineTransform = CGAffineTransformIdentity;
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
@@ -96,14 +117,22 @@ CDCircle* circle ;
 
      }
 
-
-    //thumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(0));
     thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(0));
     if (thumb.tag%2 == 1) {
     thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.6, 1.6);
+//        thumb.sublayer.frame = CGRectMake(0, 0, CGRectGetWidth(thumb.sublayer.frame)*1.6, CGRectGetHeight(thumb.sublayer.frame)*1.6);
+//        thumb.sublayer.position = thumb.center;
     } else {
     thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.4, 1.4);
     }
+    thumb.label.hidden = YES;
+    //base.hidden = NO;
+    [self.view bringSubviewToFront:_highlightLb];
+
+//    [thumb.sublayer setRasterizationScale:[[UIScreen mainScreen] scale]];
+//    [thumb.sublayer setShouldRasterize:YES];
+//    [thumb.sublayer setNeedsDisplay];
+
     
     double delayInSeconds = 0.2f;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -115,8 +144,16 @@ CDCircle* circle ;
     anim.duration = 0.07f ;
     
     [thumb.baselayer addAnimation:anim forKey:nil ] ;
+    
+    [_highlightLb.layer addAnimation:anim forKey:nil];
     });
+    
+    [thumb.label setNeedsDisplay];
 
+}
+
+-(void)hiddenLb{
+    _highlightLb.hidden = YES;
 }
 
 

@@ -25,6 +25,8 @@
 -(id) initWithFrame:(CGRect)frame numberOfSegments: (NSInteger) nSegments ringWidth:(CGFloat)width {
     self = [super initWithFrame:frame];
     
+//    exps = [NSMutableArray arrayWithObjects:@"飲みに行く", @"後で読む",@"あれから\n100日",@"気になる\n夕刊",@"スケジュール",@"明日の\nアラーム",@"美沙に\nメール",@"家まで\n45分",nil];
+    
     if (self) {
         self.inertiaeffect = YES;
         self.recognizer = [[CDCircleGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
@@ -85,14 +87,17 @@
         CDCircleThumb * thumb = [self.thumbs objectAtIndex:i];
 //        thumb.tag = i;
 //        thumb.lb.text = [NSString stringWithFormat:@"%long",(long)thumb.tag];
-        [thumb.label setString:[NSString stringWithFormat:@"%long",(long)thumb.tag]];
+        //[thumb.label setString:[NSString stringWithFormat:@"%long",(long)thumb.tag]];
+        //[thumb.label setString:[exps objectAtIndex:thumb.tag]];
+        [thumb.label setString:[Common cubesLabel:thumb.tag]];
+        
         CGFloat radius = rect1.size.height/2 + ((rect.size.height/2 - rect1.size.height/2)/2) - thumb.yydifference;
         CGFloat x = centerPoint.x + (radius * cos(degreesToRadians(perSectionDegrees)));
         CGFloat yi = centerPoint.y + (radius * sin(degreesToRadians(perSectionDegrees)));
         
 
         [thumb setTransform:CGAffineTransformMakeRotation(degreesToRadians(perSectionDegrees + kRotationDegrees))];
-        thumb.lb.transform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -totalRotation));
+        //thumb.lb.transform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -totalRotation));
         thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(-degreesToRadians(perSectionDegrees -totalRotation));
 
         if (i==0) {
@@ -105,7 +110,11 @@
         perSectionDegrees += totalRotation;
 
         [self addSubview:thumb];
-        thumb.sublayer.name = [NSString stringWithFormat:@"%d",thumb.tag];
+        
+        
+        
+        thumb.sublayer.name = [NSString stringWithFormat:@"%long",(long)thumb.tag];
+        //thumb.sublayer.name = [exps objectAtIndex:thumb.tag];
         [thumb.sublayer setNeedsDisplay];
     }
     

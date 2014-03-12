@@ -63,8 +63,10 @@
 
     currentTransformAngle = atan2f(view.transform.b, view.transform.a);
 
+    [view.delegate hiddenLb];
     
     for (CDCircleThumb *thumb in view.thumbs) {
+        thumb.label.hidden = NO;
         //thumb.sublayer.affineTransform = CGAffineTransformIdentity;
         CGPoint point = [thumb convertPoint:thumb.centerPoint toView:nil];
         CDCircleThumb *shadow = view.overlayView.overlayThumb;
@@ -245,6 +247,8 @@
 
 -(void)rotatePropaty:(CDCircle*)view selected:(CDCircleThumb*)thumb{
 
+    [view.delegate hiddenLb];
+    thumb.label.hidden = NO;
     //NSLog(@"VVVVV33333");
     CGFloat deltaAngle= - degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b);
     //CGFloat deltaAngle= atan2(thumb.transform.a, thumb.transform.b);

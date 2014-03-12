@@ -1,5 +1,6 @@
 
 #import <UIKit/UIKit.h>
+#import "Common.h"
 
 
 typedef enum {
@@ -12,7 +13,7 @@ typedef enum {
 @protocol CDCircleDelegate <NSObject>
 @required
 -(void) circle: (CDCircle *) circle didMoveToSegment:(NSInteger) segment thumb: (CDCircleThumb *) thumb;
-
+-(void) hiddenLb;
 @end
 
 @protocol CDCircleDataSource <NSObject>
@@ -24,6 +25,7 @@ typedef enum {
 
 @interface CDCircle : UIView{
     //CGFloat totalRotation;
+    NSMutableArray* exps;
 }
 
 @property (nonatomic, strong) NSMutableArray *thumbs;

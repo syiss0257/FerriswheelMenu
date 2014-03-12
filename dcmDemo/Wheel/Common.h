@@ -16,4 +16,6 @@ typedef enum {
 void drawLinearGradient(CGContextRef context, CGPathRef  path, CFArrayRef colors, CGGradientPosition position, CGFloat locations[], CGRect rect);
 
 CGRect rectFor1PxStroke(CGRect rect);
+
++(NSString*)cubesLabel:(int)num;
 @end
