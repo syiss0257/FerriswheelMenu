@@ -213,7 +213,8 @@ CDCircle* circle ;
 
 -(void)returnFromBackGround{
     //self.view.backgroundColor = [UIColor redColor];
-    [self.view setNeedsDisplay];
+    //[self.view setNeedsDisplay];
+    [self circle:circle didMoveToSegment:0 thumb:[circle.thumbs objectAtIndex:0]];
 }
 
     

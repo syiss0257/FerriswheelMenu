@@ -13,7 +13,7 @@
 
 
 
-- (id)initWithShortCircleRadius:(CGFloat)shortRadius longRadius:(CGFloat)longRadius numberOfSegments: (CGFloat) sNumber
+- (id)initWithShortCircleRadius:(CGFloat)shortRadius longRadius:(CGFloat)longRadius numberOfSegments: (CGFloat) sNumber numberOfTag:(int)num
 
 {
     //Calculating suitable frame
@@ -63,24 +63,23 @@
         self.gradientFill = YES;
 
         self.arcColor = [UIColor blackColor];
-        
         self.centerPoint = CGPointMake(CGRectGetMidX(self.bounds), y);
-
         self.gradientColors =  [NSArray arrayWithObjects:(id)[UIColor blackColor].CGColor,(id)[UIColor grayColor].CGColor,  nil];
+        self.tag = num;
     }
     
     
     //ohtake_wrote
-    _lb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 10, 20)];
-    _lb.text = @"1";
-    //_lb.transform = CGAffineTransformMakeRotation(degreesToRadians(60));
-    //_lb.transform = CGAffineTransformMakeRotation(atan2(self.transform.a,self.transform.b)-degreesToRadians(90));
-    //NSLog(@"%f",atan2(self.transform.a,self.transform.b));
-    _lb.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    [self addSubview:_lb];
-    _lb.hidden = YES;
-    
-    _scale = 0.25f;
+//    _lb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 10, 20)];
+//    _lb.text = @"1";
+//    //_lb.transform = CGAffineTransformMakeRotation(degreesToRadians(60));
+//    //_lb.transform = CGAffineTransformMakeRotation(atan2(self.transform.a,self.transform.b)-degreesToRadians(90));
+//    //NSLog(@"%f",atan2(self.transform.a,self.transform.b));
+//    _lb.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+//    [self addSubview:_lb];
+//    _lb.hidden = YES;
+//    
+//    _scale = 0.25f;
     
     
     
@@ -97,7 +96,12 @@
     _sublayer.backgroundColor = [UIColor clearColor].CGColor;
     _sublayer.opacity = 0.8;
     //_sublayer.name = @"0";
-    _sublayer.frame = CGRectMake(0, 0, 80, 80);
+    if (self.tag%2 == 1) {
+        _sublayer.frame = CGRectMake(0, 0, 70, 70);
+    } else {
+        _sublayer.frame = CGRectMake(0, 0, 80, 80);
+    }
+    //_sublayer.frame = CGRectMake(0, 0, 80, 80);
     _sublayer.position = self.center;
     [_baselayer addSublayer:_sublayer];
     [_sublayer setNeedsDisplay];
@@ -148,6 +152,11 @@
     
 
     return NO;
+}
+
+-(void)changeSize{
+    _sublayer.frame = CGRectMake(0, 0, 70, 70);
+    _sublayer.position = self.center;
 }
 
 @end

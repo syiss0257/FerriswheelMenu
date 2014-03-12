@@ -433,13 +433,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BraveTechnology Inc. (KESPH855YF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: shingo ohtake (K4WYNK2967)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dcmDemo/dcmDemo-Prefix.pch";
 				INFOPLIST_FILE = "dcmDemo/dcmDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5E176CE3-5642-4E2B-AB03-49BDACA4F390";
+				PROVISIONING_PROFILE = "778B12EE-C8CE-4E10-AD6C-4A756E698EF9";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,13 +450,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BraveTechnology Inc. (KESPH855YF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BraveTechnology Inc. (KESPH855YF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: shingo ohtake (K4WYNK2967)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: shingo ohtake (K4WYNK2967)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dcmDemo/dcmDemo-Prefix.pch";
 				INFOPLIST_FILE = "dcmDemo/dcmDemo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5E176CE3-5642-4E2B-AB03-49BDACA4F390";
+				PROVISIONING_PROFILE = "778B12EE-C8CE-4E10-AD6C-4A756E698EF9";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

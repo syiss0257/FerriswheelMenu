@@ -41,7 +41,8 @@
         CGRect rect1 = CGRectMake(0, 0, CGRectGetHeight(frame) - (2*ringWidth), CGRectGetWidth(frame) - (2*ringWidth));
         self.thumbs = [NSMutableArray array];
         for (int i = 0; i < self.numberOfSegments; i++) {
-              CDCircleThumb * thumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:frame.size.height/2 numberOfSegments:self.numberOfSegments];
+//              CDCircleThumb * thumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:frame.size.height/2 numberOfSegments:self.numberOfSegments];
+            CDCircleThumb * thumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:frame.size.height/2 numberOfSegments:self.numberOfSegments numberOfTag:i];
             //thumb.tag = i;
             [self.thumbs addObject:thumb];
         }
@@ -90,15 +91,14 @@
 
         CDCircleThumb * thumb = [self.thumbs objectAtIndex:i];
         thumb.tag = i;
-        thumb.lb.text = [NSString stringWithFormat:@"%d",thumb.tag];
-        [thumb.label setString:[NSString stringWithFormat:@"%d",thumb.tag]];
-        //thumb.label.position = thumb.center;
-        if (thumb.tag%2 == 1) {
-            thumb.sublayer.frame = CGRectMake(0, 0, 70, 70);
-            thumb.sublayer.position = thumb.center;
-            //[thumb.sublayer retain];
-        }
+        thumb.lb.text = [NSString stringWithFormat:@"%long",(long)thumb.tag];
+        [thumb.label setString:[NSString stringWithFormat:@"%long",(long)thumb.tag]];
         
+//        
+//        if (thumb.tag%2 == 1) {
+//            [thumb changeSize];
+//         }
+//        
 
         CGFloat radius = rect1.size.height/2 + ((rect.size.height/2 - rect1.size.height/2)/2) - thumb.yydifference;
         CGFloat x = centerPoint.x + (radius * cos(degreesToRadians(perSectionDegrees)));
@@ -116,13 +116,9 @@
        
         //set position of the thumb
         thumb.layer.position = CGPointMake(x, yi);
-        
-        
         perSectionDegrees += totalRotation;
-        //NSLog(@"%f",perSectionDegrees);
-        
-        
-         [self addSubview:thumb];
+
+        [self addSubview:thumb];
         thumb.sublayer.name = [NSString stringWithFormat:@"%d",thumb.tag];
         [thumb.sublayer setNeedsDisplay];
     }

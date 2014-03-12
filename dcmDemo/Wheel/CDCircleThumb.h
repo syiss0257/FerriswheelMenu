@@ -32,6 +32,8 @@
 @property (nonatomic, strong)CALayer *baselayer;
 @property (nonatomic, strong)CATextLayer *label;
 
--(id) initWithShortCircleRadius: (CGFloat) shortRadius longRadius: (CGFloat) longRadius numberOfSegments: (CGFloat) sNumber;
+//-(id) initWithShortCircleRadius: (CGFloat) shortRadius longRadius: (CGFloat) longRadius numberOfSegments: (CGFloat) sNumber;
+- (id)initWithShortCircleRadius:(CGFloat)shortRadius longRadius:(CGFloat)longRadius numberOfSegments: (CGFloat) sNumber numberOfTag:(int)num;
+-(void)changeSize;
 
 @end

@@ -23,7 +23,7 @@
         rect1.origin.y = 0;
 
         
-        overlayThumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:self.circle.frame.size.height/2 numberOfSegments:self.circle.numberOfSegments];
+        overlayThumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:self.circle.frame.size.height/2 numberOfSegments:self.circle.numberOfSegments numberOfTag:100];
         overlayThumb.gradientFill = NO;
         //overlayThumb
         

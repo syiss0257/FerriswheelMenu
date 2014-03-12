@@ -45,6 +45,6 @@ typedef enum {
 
 
 -(id) initWithFrame:(CGRect)frame numberOfSegments: (NSInteger) nSegments ringWidth: (CGFloat) width;
--(void)sampleRotate;
+//-(void)sampleRotate;
 
 @end
