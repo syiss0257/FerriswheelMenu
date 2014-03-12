@@ -37,6 +37,12 @@ CDCircle* circle ;
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     [self circle:circle didMoveToSegment:0 thumb:[circle.thumbs objectAtIndex:0]];
      });
+    
+    
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    // アクティブになったときに通知されるように登録する
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(returnFromBackGround) name:UIApplicationDidBecomeActiveNotification object:application];
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,5 +210,11 @@ CDCircle* circle ;
     
     
 }
+
+-(void)returnFromBackGround{
+    //self.view.backgroundColor = [UIColor redColor];
+    [self.view setNeedsDisplay];
+}
+
     
 @end
