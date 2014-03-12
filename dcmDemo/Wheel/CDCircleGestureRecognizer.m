@@ -188,7 +188,7 @@
    [self setState:UIGestureRecognizerStateFailed];
 }
 
-
+//隣ののセグ指定
 -(void)append{
     
     CDCircle *view = (CDCircle *)[self view];
@@ -216,6 +216,31 @@
     
 }
 
+//特定のセグ指定
+-(void)append2{
+    
+    CDCircle *view = (CDCircle *)[self view];
+    
+//    long nextThumbTag = currentThumb.tag+1;
+//    if (nextThumbTag >= view.numberOfSegments) {
+//        nextThumbTag = 0;
+//    }
+//    
+    
+    for (CDCircleThumb *thumb in view.thumbs) {
+        
+        //CGPoint touchPoint = [touch locationInView:thumb];
+        if (thumb.tag == 0) {
+                [self rotatePropaty:view selected:thumb];
+            break;
+        }
+        
+    }
+    
+    
+    [self setState:UIGestureRecognizerStateFailed];
+    
+}
 
 
 -(void)rotatePropaty:(CDCircle*)view selected:(CDCircleThumb*)thumb{

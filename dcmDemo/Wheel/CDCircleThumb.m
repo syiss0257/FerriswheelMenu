@@ -67,21 +67,7 @@
         self.gradientColors =  [NSArray arrayWithObjects:(id)[UIColor blackColor].CGColor,(id)[UIColor grayColor].CGColor,  nil];
         self.tag = num;
     }
-    
-    
-    //ohtake_wrote
-//    _lb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 10, 20)];
-//    _lb.text = @"1";
-//    //_lb.transform = CGAffineTransformMakeRotation(degreesToRadians(60));
-//    //_lb.transform = CGAffineTransformMakeRotation(atan2(self.transform.a,self.transform.b)-degreesToRadians(90));
-//    //NSLog(@"%f",atan2(self.transform.a,self.transform.b));
-//    _lb.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-//    [self addSubview:_lb];
-//    _lb.hidden = YES;
-//    
-//    _scale = 0.25f;
-    
-    
+
     
     _baselayer = [[CALayer alloc]init];
     _baselayer.backgroundColor = [UIColor clearColor].CGColor;
@@ -89,9 +75,7 @@
     _baselayer.position = self.center;
     [self.layer addSublayer:_baselayer];
     
-    
-    //CALayer *sublayer = [CALayer layer];
-    //CustomLayer *sublayer = [CALayer layer];
+
     _sublayer = [[CustomLayer alloc]init];
     _sublayer.backgroundColor = [UIColor clearColor].CGColor;
     _sublayer.opacity = 0.8;

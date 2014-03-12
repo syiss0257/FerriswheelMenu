@@ -41,7 +41,6 @@
         CGRect rect1 = CGRectMake(0, 0, CGRectGetHeight(frame) - (2*ringWidth), CGRectGetWidth(frame) - (2*ringWidth));
         self.thumbs = [NSMutableArray array];
         for (int i = 0; i < self.numberOfSegments; i++) {
-//              CDCircleThumb * thumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:frame.size.height/2 numberOfSegments:self.numberOfSegments];
             CDCircleThumb * thumb = [[CDCircleThumb alloc] initWithShortCircleRadius:rect1.size.height/2 longRadius:frame.size.height/2 numberOfSegments:self.numberOfSegments numberOfTag:i];
             //thumb.tag = i;
             [self.thumbs addObject:thumb];
@@ -57,13 +56,7 @@
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSaveGState (ctx);
     CGContextSetBlendMode(ctx, kCGBlendModeCopy);
-    
-//    [self.circleColor setFill];
-//    circle = [UIBezierPath bezierPathWithOvalInRect:rect];
-//    [circle closePath];
-//    [circle fill];
-    
-    
+
     CGRect rect1 = CGRectMake(0, 0, CGRectGetHeight(rect) - (2*ringWidth), CGRectGetWidth(rect) - (2*ringWidth));
     rect1.origin.x = rect.size.width / 2  - rect1.size.width / 2;
     rect1.origin.y = rect.size.height / 2  - rect1.size.height / 2;
@@ -90,16 +83,9 @@
         
 
         CDCircleThumb * thumb = [self.thumbs objectAtIndex:i];
-        thumb.tag = i;
-        thumb.lb.text = [NSString stringWithFormat:@"%long",(long)thumb.tag];
+//        thumb.tag = i;
+//        thumb.lb.text = [NSString stringWithFormat:@"%long",(long)thumb.tag];
         [thumb.label setString:[NSString stringWithFormat:@"%long",(long)thumb.tag]];
-        
-//        
-//        if (thumb.tag%2 == 1) {
-//            [thumb changeSize];
-//         }
-//        
-
         CGFloat radius = rect1.size.height/2 + ((rect.size.height/2 - rect1.size.height/2)/2) - thumb.yydifference;
         CGFloat x = centerPoint.x + (radius * cos(degreesToRadians(perSectionDegrees)));
         CGFloat yi = centerPoint.y + (radius * sin(degreesToRadians(perSectionDegrees)));
@@ -137,7 +123,6 @@
 
     }
 }
-    //[arecognizer append];
     
 }
 

@@ -41,8 +41,8 @@ CDCircle* circle ;
     
     UIApplication *application = [UIApplication sharedApplication];
     
-    // アクティブになったときに通知されるように登録する
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(returnFromBackGround) name:UIApplicationDidBecomeActiveNotification object:application];
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationDidBecomeActiveNotification object:application];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,8 +58,6 @@ CDCircle* circle ;
     for (CDCircleThumb* otherThumb in circle.thumbs){
 
         otherThumb.sublayer.affineTransform = CGAffineTransformIdentity;
-        //otherThumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
-        //otherThumb.sublayer.affineTransform = CGAffineTransformMakeTranslation(50, 0);
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         
         double delayInSeconds = 0.2f;
@@ -99,20 +97,7 @@ CDCircle* circle ;
      }
 
 
-    //thumb.sublayer.affineTransform = CGAffineTransformIdentity;
-    //[thumb setNeedsDisplay];
-    
-    //thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.2, 1.2);
-//    CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
-//    anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-2.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(2.0f, 0.0f, 0.0f) ] ] ;
-//    //anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DTranslate(thumb.s, <#CGFloat tx#>, <#CGFloat ty#>, <#CGFloat tz#>)(-5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
-//    anim.autoreverses = YES ;
-//    anim.repeatCount = 2.0f ;
-//    anim.duration = 0.07f ;
-//    
-//    [thumb.sublayer addAnimation:anim forKey:nil ] ;
-
-    thumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(0));
+    //thumb.lb.transform = CGAffineTransformMakeRotation(degreesToRadians(0));
     thumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(0));
     if (thumb.tag%2 == 1) {
     thumb.sublayer.affineTransform = CGAffineTransformMakeScale(1.6, 1.6);
@@ -125,24 +110,17 @@ CDCircle* circle ;
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
     CAKeyframeAnimation * anim = [ CAKeyframeAnimation animationWithKeyPath:@"transform" ] ;
     anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-1.5f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(1.5f, 0.0f, 0.0f) ] ] ;
-    //anim.values = @[ [ NSValue valueWithCATransform3D:CATransform3DTranslate(thumb.sublayer, -5.0f, 0.0f, 0.0f) ], [ NSValue valueWithCATransform3D:CATransform3DMakeTranslation(5.0f, 0.0f, 0.0f) ] ] ;
     anim.autoreverses = YES ;
     anim.repeatCount = 2.0f ;
     anim.duration = 0.07f ;
     
     [thumb.baselayer addAnimation:anim forKey:nil ] ;
     });
-    //[thumb.layer add]
-    
-    //[thumb setNeedsDisplay];
+
 }
 
 
 - (IBAction)kaitenBtn:(id)sender {
-    
-//    [circle.recognizer a];
-    //[circle sampleRotate];
-    
     
     [circle.recognizer append];
     
@@ -153,32 +131,6 @@ CDCircle* circle ;
 -(void)changeBackGroundColor:(NSInteger)segment{
     
     switch (segment) {
-//        case 0:
-//            self.view.backgroundColor = [UIColor colorWithRed:1.0 green:0.55 blue:0.42 alpha:1.0];
-//            break;
-//        case 1:
-//            self.view.backgroundColor = [UIColor colorWithRed:0.56 green:0.73 blue:0.89 alpha:1.0];
-//            break;
-//        case 2:
-//            self.view.backgroundColor = [UIColor colorWithRed:1.0 green:0.89 blue:0.63 alpha:1.0];
-//            break;
-//        case 3:
-//            self.view.backgroundColor = [UIColor colorWithRed:0.5 green:0.8 blue:0.84 alpha:1.0];
-//            break;
-//        case 4:
-//            self.view.backgroundColor = [UIColor colorWithRed:1.0 green:0.53 blue:0.49 alpha:1.0];
-//            break;
-//        case 5:
-//            self.view.backgroundColor = [UIColor colorWithRed:0.63 green:0.9 blue:0.86 alpha:1.0];
-//            break;
-//        case 6:
-//            self.view.backgroundColor = [UIColor colorWithRed:0.86 green:0.58 blue:0.68 alpha:1.0];
-//            break;
-//        case 7:
-//            self.view.backgroundColor = [UIColor colorWithRed:0.87 green:0.7 blue:0.53 alpha:1.0];
-//            break;
-            
-            
         case 0:
             self.view.backgroundColor = [UIColor colorWithRed:1.0 green:0.55 blue:0.42 alpha:0.5];
             break;
@@ -211,11 +163,10 @@ CDCircle* circle ;
     
 }
 
--(void)returnFromBackGround{
-    //self.view.backgroundColor = [UIColor redColor];
-    //[self.view setNeedsDisplay];
-    [self circle:circle didMoveToSegment:0 thumb:[circle.thumbs objectAtIndex:0]];
+-(void)applicationWillEnterForeground:(NSNotification *)notification{
+    [circle.recognizer append2];
+
 }
 
-    
+
 @end

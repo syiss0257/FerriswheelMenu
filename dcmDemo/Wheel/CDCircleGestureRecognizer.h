@@ -17,6 +17,7 @@
 
 
 -(void)append;
+-(void)append2;
 
 
 
