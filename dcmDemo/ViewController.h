@@ -16,6 +16,7 @@
     int numberOfSegment;
     UIView* base;
 }
+@property (strong, nonatomic) IBOutlet UIButton *rotateBtn;
 @property (strong, nonatomic) IBOutlet UILabel *highlightLb;
 - (IBAction)kaitenBtn:(id)sender;
 

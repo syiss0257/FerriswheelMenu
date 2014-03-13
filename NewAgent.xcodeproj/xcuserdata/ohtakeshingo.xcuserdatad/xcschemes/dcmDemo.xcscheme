@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
-               BuildableName = "dcmDemo.app"
-               BlueprintName = "dcmDemo"
-               ReferencedContainer = "container:dcmDemo.xcodeproj">
+               BuildableName = "NewAgent.app"
+               BlueprintName = "NewAgent"
+               ReferencedContainer = "container:NewAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "000E5E1118B8AA2600EB1F89"
-               BuildableName = "dcmDemoTests.xctest"
-               BlueprintName = "dcmDemoTests"
-               ReferencedContainer = "container:dcmDemo.xcodeproj">
+               BuildableName = "NewAgentTests.xctest"
+               BlueprintName = "NewAgentTests"
+               ReferencedContainer = "container:NewAgent.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
-            BuildableName = "dcmDemo.app"
-            BlueprintName = "dcmDemo"
-            ReferencedContainer = "container:dcmDemo.xcodeproj">
+            BuildableName = "NewAgent.app"
+            BlueprintName = "NewAgent"
+            ReferencedContainer = "container:NewAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
-            BuildableName = "dcmDemo.app"
-            BlueprintName = "dcmDemo"
-            ReferencedContainer = "container:dcmDemo.xcodeproj">
+            BuildableName = "NewAgent.app"
+            BlueprintName = "NewAgent"
+            ReferencedContainer = "container:NewAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
-            BuildableName = "dcmDemo.app"
-            BlueprintName = "dcmDemo"
-            ReferencedContainer = "container:dcmDemo.xcodeproj">
+            BuildableName = "NewAgent.app"
+            BlueprintName = "NewAgent"
+            ReferencedContainer = "container:NewAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

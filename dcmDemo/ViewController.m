@@ -81,7 +81,8 @@ CDCircle* circle ;
         otherThumb.sublayer.affineTransform = CGAffineTransformIdentity;
         otherThumb.sublayer.affineTransform = CGAffineTransformMakeRotation(degreesToRadians(-(360/numberOfSegment)*(otherThumb.tag-thumb.tag)));
         
-        double delayInSeconds = 0.2f;
+        //double delayInSeconds = 0.2f;
+        double delayInSeconds = 0.1f;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
 
@@ -158,7 +159,14 @@ CDCircle* circle ;
 
 
 - (IBAction)kaitenBtn:(id)sender {
-    
+    //_highlightLb.hidden = YES;
+    _rotateBtn.userInteractionEnabled = NO;
+    double delayInSeconds = 0.3f;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+
+     _rotateBtn.userInteractionEnabled = YES;
+    });
     [circle.recognizer append];
     
 }

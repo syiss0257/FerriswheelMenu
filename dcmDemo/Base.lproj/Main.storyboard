@@ -37,6 +37,7 @@
                     </view>
                     <connections>
                         <outlet property="highlightLb" destination="EJ4-Qe-zhA" id="4Ux-kX-JUp"/>
+                        <outlet property="rotateBtn" destination="bpp-n3-x10" id="7nt-WU-h5l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

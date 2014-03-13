@@ -253,7 +253,8 @@
     CGFloat deltaAngle= - degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b);
     //CGFloat deltaAngle= atan2(thumb.transform.a, thumb.transform.b);
     CGAffineTransform current = view.transform;
-    [UIView animateWithDuration:0.3f animations:^{
+    //[UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.2f animations:^{
         [view setTransform:CGAffineTransformRotate(current, deltaAngle)];
     } completion:^(BOOL finished) {
         
