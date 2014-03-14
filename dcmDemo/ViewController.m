@@ -50,6 +50,7 @@ CDCircle* circle ;
 //    //base.center = overlay.center;
 //    //base.hidden = NO;
 //    [self.view addSubview:base];
+    [
     
 }
 
