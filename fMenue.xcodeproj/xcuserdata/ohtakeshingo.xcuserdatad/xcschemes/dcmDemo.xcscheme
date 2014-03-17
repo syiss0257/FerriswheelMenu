@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
                BuildableName = "NewAgent.app"
-               BlueprintName = "NewAgent"
-               ReferencedContainer = "container:NewAgent.xcodeproj">
+               BlueprintName = "fMenue"
+               ReferencedContainer = "container:fMenue.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "000E5E1118B8AA2600EB1F89"
                BuildableName = "NewAgentTests.xctest"
-               BlueprintName = "NewAgentTests"
-               ReferencedContainer = "container:NewAgent.xcodeproj">
+               BlueprintName = "fMenueTests"
+               ReferencedContainer = "container:fMenue.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
             BuildableName = "NewAgent.app"
-            BlueprintName = "NewAgent"
-            ReferencedContainer = "container:NewAgent.xcodeproj">
+            BlueprintName = "fMenue"
+            ReferencedContainer = "container:fMenue.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
             BuildableName = "NewAgent.app"
-            BlueprintName = "NewAgent"
-            ReferencedContainer = "container:NewAgent.xcodeproj">
+            BlueprintName = "fMenue"
+            ReferencedContainer = "container:fMenue.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "000E5DF018B8AA2600EB1F89"
             BuildableName = "NewAgent.app"
-            BlueprintName = "NewAgent"
-            ReferencedContainer = "container:NewAgent.xcodeproj">
+            BlueprintName = "fMenue"
+            ReferencedContainer = "container:fMenue.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
