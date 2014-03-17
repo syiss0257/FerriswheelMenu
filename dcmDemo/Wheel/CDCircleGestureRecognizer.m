@@ -165,12 +165,16 @@
        UITouch *touch = [touches anyObject];
        
        for (CDCircleThumb *thumb in view.thumbs) {
-           thumb.sublayer.affineTransform = CGAffineTransformRotate(thumb.sublayer.affineTransform, -(- degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b)));
+           //あらかじめ回転させておきたい時
+           //thumb.sublayer.affineTransform = CGAffineTransformRotate(thumb.sublayer.affineTransform, -(- degreesToRadians(180) + atan2(view.transform.a, view.transform.b) + atan2(thumb.transform.a, thumb.transform.b)));
            CGPoint touchPoint = [touch locationInView:thumb];
            if (CGPathContainsPoint(thumb.arc.CGPath, NULL, touchPoint, NULL)) {
                //NSLog(@"VVVVVVV4444");
                 [self rotatePropaty:view selected:thumb];
                break;
+           }else{
+               //NSLog(@"CATCH");
+               //[self rotatePropaty:view selected:];
            }
            
        }
