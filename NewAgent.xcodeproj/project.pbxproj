@@ -140,7 +140,6 @@
 				000E5E0918B8AA2600EB1F89 /* ViewController.h */,
 				000E5E0A18B8AA2600EB1F89 /* ViewController.m */,
 				000E5E2918B8AA4E00EB1F89 /* Wheel */,
-				00F4DE8518D6922200D86DAF /* OuterWheel */,
 				000E5E0C18B8AA2600EB1F89 /* Images.xcassets */,
 				000E5DFB18B8AA2600EB1F89 /* Supporting Files */,
 			);
@@ -195,13 +194,6 @@
 				000C91AC18CC29DF0034025F /* CustomLayer.m */,
 			);
 			path = Wheel;
-			sourceTree = "<group>";
-		};
-		00F4DE8518D6922200D86DAF /* OuterWheel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = OuterWheel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

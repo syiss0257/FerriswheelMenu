@@ -53,14 +53,14 @@ CDCircle* circle2 ;
     //[
     
     
-    circle2 = [[CDCircle alloc] initWithFrame:CGRectMake(0 ,0, 800, 800) numberOfSegments:numberOfSegment ringWidth:100.f];
-    circle2.center = CGPointMake(160, 300);
-    circle2.dataSource = self;
-    circle2.delegate = self;
-    //[circle.recognizer append];
-    //CDCircleOverlayView *overlay = [[CDCircleOverlayView alloc] initWithCircle:circle];
-    [self.view addSubview:circle2];
-    [self.view bringSubviewToFront:circle];
+//    circle2 = [[CDCircle alloc] initWithFrame:CGRectMake(0 ,0, 800, 800) numberOfSegments:numberOfSegment ringWidth:100.f];
+//    circle2.center = CGPointMake(160, 300);
+//    circle2.dataSource = self;
+//    circle2.delegate = self;
+//    //[circle.recognizer append];
+//    //CDCircleOverlayView *overlay = [[CDCircleOverlayView alloc] initWithCircle:circle];
+//    [self.view addSubview:circle2];
+//    [self.view bringSubviewToFront:circle];
     
 }
 

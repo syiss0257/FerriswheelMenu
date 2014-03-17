@@ -89,22 +89,13 @@
     //_sublayer.frame = CGRectMake(0, 0, 80, 80);
     _sublayer.position = self.center;
     
+    [_sublayer setContentsScale:[[UIScreen mainScreen] scale]];
     [_sublayer setRasterizationScale:[[UIScreen mainScreen] scale]];
     [_sublayer setShouldRasterize:YES];
     [_baselayer addSublayer:_sublayer];
     [_sublayer setNeedsDisplay];
     
-    
-    
-//    _label = [[CATextLayer alloc] init];
-//    [_label setFont:@"Helvetica-Bold"];
-//    [_label setFontSize:20];
-//    [_label setFrame:CGRectMake(0, 0, 10, 20)];
-//    [_label setString:[NSString stringWithFormat:@"%d",5]];
-//    [_label setAlignmentMode:kCAAlignmentCenter];
-//    [_label setForegroundColor:[[UIColor whiteColor] CGColor]];
-//    _label.position = CGPointMake(35, 35);
-//    [_sublayer addSublayer:_label];
+
     _label = [[CATextLayer alloc] init];
     [_label setFont:@"AppleGothic"];
     [_label setFontSize:12];
@@ -112,18 +103,10 @@
     [_label setString:[NSString stringWithFormat:@"%d",5]];
     [_label setAlignmentMode:kCAAlignmentCenter];
     [_label setForegroundColor:[[UIColor whiteColor] CGColor]];
+    [_label setContentsScale:[[UIScreen mainScreen] scale]];
     _label.position = CGPointMake(37, 40);
-    //_label.position = self.center;
     [_sublayer addSublayer:_label];
-//    [_label setRasterizationScale:[[UIScreen mainScreen] scale]];
-//    [_label setShouldRasterize:YES];
-//    UIView* fff = [[UIView alloc]initWithFrame:CGRectMake(50, -50, 50, 50)];
-//    fff.backgroundColor = [UIColor yellowColor];
-//    [self addSubview:fff];
-//
-//    
 
-    
     return self;
 }
 
