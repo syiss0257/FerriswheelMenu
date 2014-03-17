@@ -9,7 +9,7 @@
 #define radiansToDegrees(x) ((x) / M_PI * 180)
 #import "ViewController.h"
 CDCircle* circle ;
-
+CDCircle* circle2 ;
 @interface ViewController ()
 
 @end
@@ -22,7 +22,7 @@ CDCircle* circle ;
 	// Do any additional setup after loading the view, typically from a nib.
     numberOfSegment = 8;
     
-    circle = [[CDCircle alloc] initWithFrame:CGRectMake(10 , 100, 300, 300) numberOfSegments:numberOfSegment ringWidth:100.f];
+    circle = [[CDCircle alloc] initWithFrame:CGRectMake(10 , 150, 300, 300) numberOfSegments:numberOfSegment ringWidth:100.f];
     circle.dataSource = self;
     circle.delegate = self;
     //[circle.recognizer append];
@@ -50,7 +50,17 @@ CDCircle* circle ;
 //    //base.center = overlay.center;
 //    //base.hidden = NO;
 //    [self.view addSubview:base];
-    [
+    //[
+    
+    
+    circle2 = [[CDCircle alloc] initWithFrame:CGRectMake(0 ,0, 800, 800) numberOfSegments:numberOfSegment ringWidth:100.f];
+    circle2.center = CGPointMake(160, 300);
+    circle2.dataSource = self;
+    circle2.delegate = self;
+    //[circle.recognizer append];
+    //CDCircleOverlayView *overlay = [[CDCircleOverlayView alloc] initWithCircle:circle];
+    [self.view addSubview:circle2];
+    [self.view bringSubviewToFront:circle];
     
 }
 

@@ -140,6 +140,7 @@
 				000E5E0918B8AA2600EB1F89 /* ViewController.h */,
 				000E5E0A18B8AA2600EB1F89 /* ViewController.m */,
 				000E5E2918B8AA4E00EB1F89 /* Wheel */,
+				00F4DE8518D6922200D86DAF /* OuterWheel */,
 				000E5E0C18B8AA2600EB1F89 /* Images.xcassets */,
 				000E5DFB18B8AA2600EB1F89 /* Supporting Files */,
 			);
@@ -194,6 +195,13 @@
 				000C91AC18CC29DF0034025F /* CustomLayer.m */,
 			);
 			path = Wheel;
+			sourceTree = "<group>";
+		};
+		00F4DE8518D6922200D86DAF /* OuterWheel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OuterWheel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,13 +441,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BraveTechnology Inc. (KESPH855YF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: shingo ohtake (K4WYNK2967)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dcmDemo/NewAgent-Prefix.pch";
 				INFOPLIST_FILE = "dcmDemo/NewAgent-Info.plist";
 				PRODUCT_NAME = NewAgent;
-				PROVISIONING_PROFILE = "5E176CE3-5642-4E2B-AB03-49BDACA4F390";
+				PROVISIONING_PROFILE = "778B12EE-C8CE-4E10-AD6C-4A756E698EF9";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,13 +458,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BraveTechnology Inc. (KESPH855YF)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BraveTechnology Inc. (KESPH855YF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: shingo ohtake (K4WYNK2967)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: shingo ohtake (K4WYNK2967)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "dcmDemo/NewAgent-Prefix.pch";
 				INFOPLIST_FILE = "dcmDemo/NewAgent-Info.plist";
 				PRODUCT_NAME = NewAgent;
-				PROVISIONING_PROFILE = "5E176CE3-5642-4E2B-AB03-49BDACA4F390";
+				PROVISIONING_PROFILE = "778B12EE-C8CE-4E10-AD6C-4A756E698EF9";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

@@ -79,6 +79,7 @@
     _sublayer = [[CustomLayer alloc]init];
     _sublayer.backgroundColor = [UIColor clearColor].CGColor;
     _sublayer.opacity = 0.8;
+    _sublayer.allowsEdgeAntialiasing =YES;
     //_sublayer.name = @"0";
     if (self.tag%2 == 1) {
         _sublayer.frame = CGRectMake(0, 0, 70, 70);
@@ -107,7 +108,6 @@
     _label = [[CATextLayer alloc] init];
     [_label setFont:@"AppleGothic"];
     [_label setFontSize:12];
-    
     [_label setFrame:CGRectMake(0, 0, 50, 50)];
     [_label setString:[NSString stringWithFormat:@"%d",5]];
     [_label setAlignmentMode:kCAAlignmentCenter];
@@ -117,8 +117,11 @@
     [_sublayer addSublayer:_label];
 //    [_label setRasterizationScale:[[UIScreen mainScreen] scale]];
 //    [_label setShouldRasterize:YES];
-    
-
+//    UIView* fff = [[UIView alloc]initWithFrame:CGRectMake(50, -50, 50, 50)];
+//    fff.backgroundColor = [UIColor yellowColor];
+//    [self addSubview:fff];
+//
+//    
 
     
     return self;

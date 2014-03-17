@@ -10,14 +10,15 @@
 #import "CDCircle.h"
 #import "CDCircleGestureRecognizer.h"
 #import "CDCircleOverlayView.h"
-#import "a"
+
+//#import "a"
 
 
 @interface ViewController : UIViewController<CDCircleDelegate,CDCircleDataSource>{
     int numberOfSegment;
     UIView* base;
 }
-@property (strong, nonatomic) IBOutlet AnimationImageView *avatarImageView;
+//@property (strong, nonatomic) IBOutlet AnimationImageView *avatarImageView;
 @property (strong, nonatomic) IBOutlet UIButton *rotateBtn;
 @property (strong, nonatomic) IBOutlet UILabel *highlightLb;
 - (IBAction)kaitenBtn:(id)sender;
